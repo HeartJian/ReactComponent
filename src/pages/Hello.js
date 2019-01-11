@@ -16,11 +16,20 @@ export default class Hello extends Component {
             rnd += Math.floor(Math.random() * 10);
         return rnd / 2;
     }
+    onChange(){
+        console.log(this.basic)
+        for (let a = 0; a < 20; a++)
+        this.basic.push(this.RndNum());
+        console.log(this.basic)
+        this.setState({
+            mark:this.RndNum()
+        })
+    }
 
     render() {
-        let param={fallwidth:300,basic:this.basic}
+        let param={fallwidth:300,basic:this.basic,onChange:this.onChange.bind(this)}
         return (
-            <Falls {...param}></Falls>
+            <Falls  {...param}></Falls>
         )
     }
 }
